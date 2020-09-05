@@ -1,7 +1,7 @@
 import {
     CatalogItem,
     BasketItem
-} from './Items.js';
+} from './ITEMS.js';
 
 let classes = {
     'Catalog': CatalogItem,
@@ -16,7 +16,7 @@ export default class List {
         this._init();
     }
     _init() {
-        let url = 'https://github.com/TatianaKononova/js-2-20-1309/tree/master/ST/KononovaT/Project' + this.url;
+        let url = 'https://raw.githubusercontent.com/kellolo/static/master/JSON' + this.url;
         this._get(url)
             .then(data => {
                 this.items = this.basket ? data : data.content;
@@ -35,6 +35,7 @@ export default class List {
         let htmlStr = '';
         this.items.forEach(item => {
             htmlStr += new classes[this.constructor.name](item).render();
+            //this.constructor.name == 'Basket' || 'Catalog'
         });
         this.container.innerHTML = htmlStr;
     }
