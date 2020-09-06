@@ -35,7 +35,7 @@ export default class List {
         let htmlStr = '';
         this.items.forEach(item => {
             htmlStr += new classes[this.constructor.name](item).render();
-            //this.constructor.name == 'Basket' || 'Catalog'
+        
         });
         this.container.innerHTML = htmlStr;
     }
